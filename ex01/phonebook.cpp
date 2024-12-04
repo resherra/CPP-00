@@ -1,60 +1,71 @@
 #include "PhoneBook.hpp"
 #include <iostream>
 
-using std::cin;
-using std::cout;
-using std::string;
-using std::endl;
-using std::istream;
-
-
-void    Contact::set_first_name(std::istream& in)
+void    PhoneBook::add(int i)
 {
-    getline(in, first_name);
-}
-void Contact::set_last_name(istream& in)
-{
-    getline(in, last_name);
-}
-void Contact::set_nickname(istream& in)
-{
-    getline(in, nickname);
+    contacts[i] = tmp;
 }
 
-void Contact::set_phone_number(istream& in)
+void    PhoneBook::collect_infos(std::istream& in)
 {
-    getline(in, phone_number);
+    tmp.set_first_name(std::cin);
+    tmp.set_last_name(std::cin);
+    tmp.set_nickname(std::cin);
+    tmp.set_phone_number(std::cin);
+    tmp.set_secret(std::cin);
 }
 
-void Contact::set_secret(istream& in)
+void    PhoneBook::display()
 {
-    getline(in, secret);
+    int i = 0;
+    while (i < 8)
+    {   
+        Contact contact = contacts[i];
+        std::cout << i << " |" << contact.get_first_name() << " |" << contact.get_last_name() << " |" << contact.get_nickname() << std::endl;
+        i++;
+    }
 }
-    
 
-
-
+void    PhoneBook::search(unsigned int i)
+{
+    std::cout << "First name: " + contacts[i].get_first_name() << std::endl;
+    std::cout << "Last name: " + contacts[i].get_last_name() << std::endl;
+    std::cout << "Nickname: " + contacts[i].get_nickname() << std::endl;
+    std::cout << "Phone number: " + contacts[i].get_phone_number() << std::endl;
+    std::cout << "Secret: " + contacts[i].get_secret() << std::endl;
+}   
 
 int main()
 {
     int i = 0;
     PhoneBook book;
+    std::string input;    
     
-    std::string input;
+    std::cout << "Enter one of these commands: ADD, SEARCH or EXIT." << std::endl;
+
     while (getline(std::cin, input))
     {
         if (input == "a")
         {
-            book.contacts[i].set_first_name(cin);
-            book.contacts[i].set_last_name(cin);
-            book.contacts[i].set_nickname(cin);
-            book.contacts[i].set_phone_number(cin);
-            book.contacts[i].set_secret(cin);
+            book.collect_infos(std::cin);
+            book.add(i % 8);
+            std::cout << std::endl << "Contact added successfully! Enter one of these commands: ADD, SEARCH or EXIT." << std::endl;
         }
+        else if (input == "s")
+        {
+            book.display();
+            std::cout << "enter an entry index: ";
+            unsigned int index;
+            std::cin >> index;
+            if (!std::cin || index > 7)
+            {
+                //error
+            }
+            else
+                book.search(index);
+        }
+        else if (input == "EXIT")
+            exit(0);
         i++;
     }
-
-    i = 0;
-    cout << "first name: " << book.contacts[i].get_first_name() << endl;
-    cout << "last name: " << book.contacts[i].get_last_name() << endl;
 }

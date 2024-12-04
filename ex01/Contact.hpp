@@ -13,10 +13,11 @@ class Contact
         void set_phone_number(std::istream&);
         void set_secret(std::istream&);
 
-
-        std::string get_first_name() { return first_name; }
-        std::string get_last_name() { return last_name; }
-
+        std::string get_first_name(); 
+        std::string get_last_name();
+        std::string get_nickname();
+        std::string get_phone_number();
+        std::string get_secret();
     private:
         std::string first_name;
         std::string last_name;

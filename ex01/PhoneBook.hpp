@@ -5,9 +5,13 @@
 
 class PhoneBook {
     public:
-        void    add();
-        void    search();
-        Contact contacts[8];
+        void    add(int);
+        void    display();
+        void    search(unsigned int);
+        void    collect_infos(std::istream&);
+    private:
+        Contact tmp;
+        Contact contacts[8];      
 };
 
 #endif
