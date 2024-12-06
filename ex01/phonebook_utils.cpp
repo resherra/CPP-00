@@ -15,6 +15,13 @@ void    PhoneBook::collect_infos(std::istream& in)
     tmp.set_secret(in);
 }
 
+std::string trunc(std::string str)
+{
+    if (str.size() > 10)
+        return str.substr(0, 9) + '.'; 
+    return str;
+}
+
 void    PhoneBook::display()
 {
     int i = 0;
@@ -24,7 +31,7 @@ void    PhoneBook::display()
         if (!contact.get_first_name().size())
             break;
         std::cout << std::setw(10) << i << "|";
-        std::cout << std::setw(10) << contact.get_first_name() << "|";
+        std::cout << std::setw(10) << trunc(contact.get_first_name()) << "|";
         std::cout << std::setw(10) <<  contact.get_last_name() << "|";
         std::cout << std::setw(10) << contact.get_nickname() << std::endl;
         i++;
