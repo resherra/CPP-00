@@ -1,7 +1,5 @@
 #include "PhoneBook.hpp"
 #include <iomanip>
-#include <ios>
-
 
 void    PhoneBook::add(int i)
 {
@@ -10,11 +8,11 @@ void    PhoneBook::add(int i)
 
 void    PhoneBook::collect_infos(std::istream& in)
 {
-    tmp.set_first_name(std::cin);
-    tmp.set_last_name(std::cin);
-    tmp.set_nickname(std::cin);
-    tmp.set_phone_number(std::cin);
-    tmp.set_secret(std::cin);
+    tmp.set_first_name(in);
+    tmp.set_last_name(in);
+    tmp.set_nickname(in);
+    tmp.set_phone_number(in);
+    tmp.set_secret(in);
 }
 
 void    PhoneBook::display()
