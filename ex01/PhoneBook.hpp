@@ -2,6 +2,7 @@
 #define phonebook_h
 
 #include "Contact.hpp"
+#include <stdexcept>
 
 class PhoneBook {
     public:
@@ -11,7 +12,7 @@ class PhoneBook {
         void    collect_infos(std::istream&);
     private:
         Contact tmp;
-        Contact contacts[8];      
+        Contact contacts[8];
 };
 
 #endif

@@ -1,4 +1,4 @@
-SRC=phonebook.cpp get_contact_infos.cpp set_contact_infos.cpp
+SRC=phonebook.cpp get_contact_infos.cpp set_contact_infos.cpp phonebook_utils.cpp
 OBJ=$(SRC:.cpp=.o)
 HEADERS=Contact.hpp PhoneBook.hpp
 NAME=phonebook
