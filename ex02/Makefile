@@ -1,4 +1,4 @@
-SRC = tests.cpp account.cpp
+SRC = tests.cpp Account.cpp
 OBJ = $(SRC:.cpp=.o)
 HEADERS = Account.hpp
 NAME = account
