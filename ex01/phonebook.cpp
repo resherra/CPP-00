@@ -13,14 +13,14 @@ int main()
     {
         try
         {
-            if (input == "a")
+            if (input == "ADD")
             {
                 book.collect_infos(std::cin);
                 book.add(i % 8);
                 std::cout << std::endl << "Contact added successfully! " + prompt << std::endl;
                 i++;
             }
-            else if (input == "s")
+            else if (input == "SEARCH")
             {
                 book.display();
                 std::cout << "Enter an entry index: ";

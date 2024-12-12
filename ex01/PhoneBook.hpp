@@ -3,7 +3,6 @@
 
 #include "Contact.hpp"
 #include <stdexcept>
-#include <cstdlib>
 
 class PhoneBook {
     public:

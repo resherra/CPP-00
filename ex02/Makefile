@@ -1,4 +1,4 @@
-SRC = tests.cpp Account.cpp
+SRC = $(wildcard *.cpp)
 OBJ = $(SRC:.cpp=.o)
 HEADERS = Account.hpp
 NAME = account
@@ -6,15 +6,15 @@ NAME = account
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	c++ $(OBJ) -o $(NAME)
+	c++ -Wall -Wextra -Werror -std=c++98 $(OBJ) -o $(NAME)
 
 %.o: %.cpp $(HEADERS)
-	c++ -Wall -Wextra -std=c++98 -c $< -o $@
+	c++ -Wall -Wextra -Werror -std=c++98 -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	rm $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	rm $(NAME)
 
 re: fclean all
