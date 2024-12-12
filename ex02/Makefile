@@ -1,7 +1,7 @@
 SRC = $(wildcard *.cpp)
 OBJ = $(SRC:.cpp=.o)
 HEADERS = Account.hpp
-NAME = account
+NAME = Account
 
 all: $(NAME)
 

@@ -1,17 +1,5 @@
 #include <iostream>
 
-std::string capitalize(std::string str)
-{
-	int i = 0;
-	while (str[i])
-	{
-		str[i] = std::toupper(str[i]);
-		i++;
-	}
-	return str;
-}
-
-
 int main(int ac, char **av)
 {
 	int i = 1;
@@ -21,6 +9,11 @@ int main(int ac, char **av)
 		return 0;
 	}
 	while (av[i])
-		std::cout << capitalize(av[i++]);
+	{
+		int j = 0;
+		while (av[i][j])
+			std::cout << (char)std::toupper(av[i][j++]);
+		i++;
+	}
 	std::cout << std::endl;
-} 
+}
