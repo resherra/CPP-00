@@ -28,14 +28,16 @@ int main()
                 std::cin >> index;
                 if (!std::cin || index > 7)
                 {
-                    if (!std::cin)
-                        exit(1);
-                    else
+                    if (!std::cin && !std::cin.eof())
+                    {
+                        std::cout << "The index you provided is not valid! " + prompt << std::endl;
+                        std::cin.clear();
+                    }
+                    else if (index > 7)
                         std::cout << "The index you provided is out of range! " + prompt << std::endl;
                 }
                 else
-                {
-                    std::cout << "Here's the contact infos related to this index: " << std::endl;
+                {                    
                     book.search(index);
                 }
             }

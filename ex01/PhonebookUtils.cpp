@@ -32,17 +32,25 @@ void    PhoneBook::display()
             break;
         std::cout << std::setw(10) << i << "|";
         std::cout << std::setw(10) << trunc(contact.get_first_name()) << "|";
-        std::cout << std::setw(10) <<  contact.get_last_name() << "|";
-        std::cout << std::setw(10) << contact.get_nickname() << std::endl;
+        std::cout << std::setw(10) <<  trunc(contact.get_last_name()) << "|";
+        std::cout << std::setw(10) << trunc(contact.get_nickname())  << std::endl;
         i++;
     }
 }
 
 void    PhoneBook::search(unsigned int i)
 {
-    std::cout << "First name: " + contacts[i].get_first_name() << std::endl;
-    std::cout << "Last name: " + contacts[i].get_last_name() << std::endl;
-    std::cout << "Nickname: " + contacts[i].get_nickname() << std::endl;
-    std::cout << "Phone number: " + contacts[i].get_phone_number() << std::endl;
-    std::cout << "Secret: " + contacts[i].get_secret() << std::endl;
+    Contact contact = contacts[i];
+    if (!contact.get_first_name().size())
+    {
+        std::cout << "The entry you provided is empty! Enter one of these commands: ADD, SEARCH or EXIT." << std::endl; 
+        return;
+    }
+    std::cout << "Here's the contact infos related to this index: " << std::endl;    
+    std::cout << "First name: " + contact.get_first_name() << std::endl;
+    std::cout << "Last name: " + contact.get_last_name() << std::endl;
+    std::cout << "Nickname: " + contact.get_nickname() << std::endl;
+    std::cout << "Phone number: " + contact.get_phone_number() << std::endl;
+    std::cout << "Secret: " + contact.get_secret() << std::endl;
 }  
+
