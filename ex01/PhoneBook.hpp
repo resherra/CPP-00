@@ -2,7 +2,6 @@
 #define phonebook_h
 
 #include "Contact.hpp"
-#include <stdexcept>
 #include <cstdlib>
 
 class PhoneBook {

@@ -44,7 +44,7 @@ int main()
             else if (input == "EXIT")
                 exit(0);
         }
-        catch(const std::exception&)
+        catch(int)
         {
             std::cout << "A saved contact can’t have empty field " + prompt << std::endl;
         }

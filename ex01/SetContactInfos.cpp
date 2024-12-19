@@ -22,7 +22,7 @@ void custom_get_line(std::istream& in, std::string& arg)
     }
     if (isempty(arg))
     {
-        throw std::runtime_error("");
+        throw -1;
     }
 }
 
